@@ -1,5 +1,7 @@
 # GlobalMed-Triage
 
+“Hackathon project for lablab.ai – AI-powered medical triage using Coral-Protocol"
+
 ## Local Python Environment (Single .venv Policy)
 To simplify development and avoid drift, this repo now uses ONE canonical virtual environment at the root: `.venv/`.
 
@@ -97,6 +99,7 @@ Defined in `docker-compose.yml`:
 - `translation_service`: Separate translation microservice (Gemini)
 
 ## Makefile Shortcuts
+
 A `Makefile` is included for convenience. Examples:
 ```
 make up            # Build and start all services
