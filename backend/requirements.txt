@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+asyncpg
+sqlalchemy[asyncio]
+psycopg2-binary
+alembic
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+websockets
+pydantic
+python-multipart
+pytest
+# Coral Protocol SDK (placeholder, replace with actual package if available)
+# coral-protocol

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+
+# Virtual environments
+.envrc
+.venv/
+venv/
+# Added generic pattern to ignore any extra experimental envs like .venv_optionb, .venv_test, etc.
+.venv_*/
+
+# Node / frontend
+yarn.lock
+node_modules/
+dist/
+.cache/
+
+# Environment & secrets
+.env
+backend/.env
+.env.local
+.env.*.local
+
+# Docker
+*.pid
+*.log
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Data volumes / temp
+pg_data/
+/db_data/

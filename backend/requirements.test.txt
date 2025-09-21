@@ -1,0 +1,19 @@
+# Minimal dependencies for running backend tests (no protobuf constraints, no google-generativeai)
+# Direct HTTP calls are used; client SDK removed to avoid protobuf version coupling.
+
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+python-dotenv==1.0.1
+requests==2.32.3
+asyncpg
+sqlalchemy[asyncio]
+psycopg2-binary
+alembic
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+websockets
+pydantic
+python-multipart
+PyYAML
+pytest

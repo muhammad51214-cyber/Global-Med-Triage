@@ -1,0 +1,243 @@
+i # GlobalMedTriage API Documentation
+
+## Authentication
+- Most endpoints are public by default. Secure with JWT as needed.
+
+---
+
+## Users
+
+| Method | Endpoint                | Description                |
+|--------|-------------------------|----------------------------|
+| POST   | `/api/users`            | Create a new user          |
+| GET    | `/api/users`            | List all users             |
+| GET    | `/api/users/{user_id}`  | Get user by ID             |
+| PUT    | `/api/users/{user_id}`  | Update user by ID          |
+| DELETE | `/api/users/{user_id}`  | Delete user by ID          |
+
+**User Object Example:**
+```json
+{
+  "id": 1,
+  "username": "jdoe",
+  "email": "jdoe@example.com",
+  "role": "doctor",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+**Create/Update Request:**
+```json
+{
+  "username": "jdoe",
+  "password_hash": "hashedpassword",
+  "email": "jdoe@example.com",
+  "role": "doctor"
+}
+```
+
+---
+
+## Patients
+
+| Method | Endpoint                     | Description                |
+|--------|------------------------------|----------------------------|
+| POST   | `/api/patients`              | Create a new patient       |
+| GET    | `/api/patients`              | List all patients          |
+| GET    | `/api/patients/{patient_id}` | Get patient by ID          |
+| PUT    | `/api/patients/{patient_id}` | Update patient by ID       |
+| DELETE | `/api/patients/{patient_id}` | Delete patient by ID       |
+
+**Patient Object Example:**
+```json
+{
+  "id": 1,
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "date_of_birth": "1990-01-01",
+  "gender": "female",
+  "phone": "1234567890",
+  "email": "jane@example.com",
+  "address": "123 Main St",
+  "emergency_contact_name": "John Doe",
+  "emergency_contact_phone": "0987654321",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+**Create/Update Request:** (same as above, without `id` and `created_at`)
+
+---
+
+## Medical Staff
+
+| Method | Endpoint                          | Description                |
+|--------|-----------------------------------|----------------------------|
+| POST   | `/api/medical_staff`              | Create a new staff member  |
+| GET    | `/api/medical_staff`              | List all staff             |
+| GET    | `/api/medical_staff/{staff_id}`   | Get staff by ID            |
+| PUT    | `/api/medical_staff/{staff_id}`   | Update staff by ID         |
+| DELETE | `/api/medical_staff/{staff_id}`   | Delete staff by ID         |
+
+**MedicalStaff Object Example:**
+```json
+{
+  "id": 1,
+  "user_id": 1,
+  "staff_type": "doctor",
+  "license_number": "ABC123",
+  "department": "ER",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+
+---
+
+## Insurance
+
+| Method | Endpoint                        | Description                |
+|--------|---------------------------------|----------------------------|
+| POST   | `/api/insurance`                | Create insurance           |
+| GET    | `/api/insurance`                | List all insurance         |
+| GET    | `/api/insurance/{insurance_id}` | Get insurance by ID        |
+| PUT    | `/api/insurance/{insurance_id}` | Update insurance by ID     |
+| DELETE | `/api/insurance/{insurance_id}` | Delete insurance by ID     |
+
+**Insurance Object Example:**
+```json
+{
+  "id": 1,
+  "patient_id": 1,
+  "provider": "HealthCo",
+  "policy_number": "POL123",
+  "valid_until": "2026-01-01",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+
+---
+
+## Triage Records
+
+| Method | Endpoint                              | Description                |
+|--------|---------------------------------------|----------------------------|
+| POST   | `/api/triage_records`                 | Create triage record       |
+| GET    | `/api/triage_records`                 | List all triage records    |
+| GET    | `/api/triage_records/{record_id}`     | Get triage record by ID    |
+| PUT    | `/api/triage_records/{record_id}`     | Update triage record by ID |
+| DELETE | `/api/triage_records/{record_id}`     | Delete triage record by ID |
+
+**TriageRecord Object Example:**
+```json
+{
+  "id": 1,
+  "patient_id": 1,
+  "staff_id": 2,
+  "triage_time": "2025-09-21T12:00:00",
+  "chief_complaint": "Headache",
+  "triage_level": "urgent",
+  "notes": "Patient stable"
+}
+```
+
+---
+
+## Vital Signs
+
+| Method | Endpoint                          | Description                |
+|--------|-----------------------------------|----------------------------|
+| POST   | `/api/vital_signs`                | Create vital sign          |
+| GET    | `/api/vital_signs`                | List all vital signs       |
+| GET    | `/api/vital_signs/{vital_id}`     | Get vital sign by ID       |
+| PUT    | `/api/vital_signs/{vital_id}`     | Update vital sign by ID    |
+| DELETE | `/api/vital_signs/{vital_id}`     | Delete vital sign by ID    |
+
+**VitalSign Object Example:**
+```json
+{
+  "id": 1,
+  "triage_record_id": 1,
+  "heart_rate": 80,
+  "blood_pressure_systolic": 120,
+  "blood_pressure_diastolic": 80,
+  "respiratory_rate": 16,
+  "spo2": 98,
+  "temperature_c": 36.7,
+  "stress_level": "normal",
+  "measured_at": "2025-09-21T12:00:00"
+}
+```
+
+---
+
+## Audit Logs
+
+| Method | Endpoint                        | Description                |
+|--------|---------------------------------|----------------------------|
+| POST   | `/api/audit_logs`               | Create audit log           |
+| GET    | `/api/audit_logs`               | List all audit logs        |
+| GET    | `/api/audit_logs/{log_id}`      | Get audit log by ID        |
+| PUT    | `/api/audit_logs/{log_id}`      | Update audit log by ID     |
+| DELETE | `/api/audit_logs/{log_id}`      | Delete audit log by ID     |
+
+**AuditLog Object Example:**
+```json
+{
+  "id": 1,
+  "user_id": 1,
+  "action": "login",
+  "details": "User logged in",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+
+---
+
+## Agent Logs
+
+| Method | Endpoint                        | Description                |
+|--------|---------------------------------|----------------------------|
+| POST   | `/api/agent_logs`               | Create agent log           |
+| GET    | `/api/agent_logs`               | List all agent logs        |
+| GET    | `/api/agent_logs/{log_id}`      | Get agent log by ID        |
+| PUT    | `/api/agent_logs/{log_id}`      | Update agent log by ID     |
+| DELETE | `/api/agent_logs/{log_id}`      | Delete agent log by ID     |
+
+**AgentLog Object Example:**
+```json
+{
+  "id": 1,
+  "agent_name": "triage_agent",
+  "user_id": 1,
+  "patient_id": 1,
+  "action": "analyze",
+  "message": "Triage completed",
+  "created_at": "2025-09-21T12:00:00"
+}
+```
+
+---
+
+## Health Check
+
+| Method | Endpoint         | Description         |
+|--------|------------------|---------------------|
+| GET    | `/api/health`    | API health check    |
+
+---
+
+## Triage Endpoint
+
+| Method | Endpoint         | Description         |
+|--------|------------------|---------------------|
+| POST   | `/api/triage`    | Run triage workflow (see code for details) |
+
+---
+
+**Notes:**
+- All endpoints return JSON.
+- For POST/PUT, supply the request body as JSON (see examples above).
+- For GET/DELETE, supply the resource ID in the URL path.
+- Timestamps are in ISO 8601 format.
+- All list endpoints return arrays of objects.
+
+If you need this as a markdown file or want to generate OpenAPI/Swagger docs, FastAPI provides this automatically at `/docs` and `/redoc` when the server is running. If you want a downloadable file or further customization, let me know!
+

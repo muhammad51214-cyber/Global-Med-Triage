@@ -1,0 +1,48 @@
+# Aggregated dependencies across backend services (no protobuf pin per user request)
+# Source files:
+#  - backend/requirements.txt
+#  - backend/translation_service/requirements.txt
+#  - backend/vital_signs_agent/requirements.txt
+#  - backend/coral_project/Coral-MedicalOfficeTriage-Agent/requirements.txt
+# NOTE: protobuf is NOT pinned intentionally. Removed google-generativeai library to avoid protobuf version conflicts; direct HTTP calls are used instead.
+# If later you need the official client, isolate it in a separate service-specific requirements file.
+
+fastapi==0.111.0            # pinned (translation_service)
+uvicorn[standard]==0.30.1    # pinned (translation_service)
+python-dotenv==1.0.1         # pinned (translation_service)
+requests==2.32.3             # pinned (translation_service)
+
+# Core backend auth/db
+asyncpg
+sqlalchemy[asyncio]
+psycopg2-binary
+alembic
+python-jose[cryptography]
+passlib[bcrypt]
+
+# API / serialization / web
+httpx
+websockets
+pydantic                     # leave unpinned (FastAPI compatible with v1 & v2)
+python-multipart
+PyYAML
+
+# Testing
+pytest
+
+# ML / audio (vital signs agent)
+numpy
+torch
+librosa
+
+# LiveKit voice and LLM capabilities (pinned to reduce resolver backtracking)
+livekit==1.0.13
+livekit-api==1.0.5
+livekit-protocol==1.0.6
+livekit-agents==1.2.11
+livekit-plugins-cartesia==1.2.11
+livekit-plugins-deepgram==1.2.11
+livekit-plugins-groq==1.2.11
+livekit-plugins-openai==1.2.11
+livekit-plugins-silero==1.2.11
+livekit-plugins-noise-cancellation==0.2.5

@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  coral-server:
+    build: ./coral-server
+    container_name: coral-server
+    ports:
+      - "8080:8080"
+
+  medical-agent:
+    build: ./Coral-MedicalOfficeTriage-Agent
+    container_name: medical-agent
+    env_file:
+      - ./Coral-MedicalOfficeTriage-Agent/.env
+    depends_on:
+      - coral-server
+    network_mode: host

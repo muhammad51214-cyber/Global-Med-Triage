@@ -1,0 +1,28 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (]8;;file://0/usr/lib/systemd/system/docker.service/usr/lib/systemd/system/docker.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Sun 2025-09-21 02:46:01 PKT; 1h 43min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: ]8;;https://docs.docker.comhttps://docs.docker.com]8;;
+   Main PID: 2059 (dockerd)
+      Tasks: 70
+     Memory: 5.4G (peak: 5.5G)
+        CPU: 50.808s
+     CGroup: /system.slice/docker.service
+             ├─[0;38;5;245m 2059 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock[0m
+             ├─[0;38;5;245m 2436 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5432 -container-ip 172.18.0.4 -container-port 5432[0m
+             ├─[0;38;5;245m 2444 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5432 -container-ip 172.18.0.4 -container-port 5432[0m
+             ├─[0;38;5;245m28193 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8002 -container-ip 172.18.0.2 -container-port 8000[0m
+             ├─[0;38;5;245m28200 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8002 -container-ip 172.18.0.2 -container-port 8000[0m
+             ├─[0;38;5;245m31562 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8000 -container-ip 172.18.0.3 -container-port 8000[0m
+             └─[0;38;5;245m31569 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8000 -container-ip 172.18.0.3 -container-port 8000[0m
+
+Sep 21 04:28:07 0 dockerd[2059]: time="2025-09-21T04:28:07.390824337+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:07 0 dockerd[2059]: time="2025-09-21T04:28:07.990693453+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:08 0 dockerd[2059]: time="2025-09-21T04:28:08.680560309+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:09 0 dockerd[2059]: time="2025-09-21T04:28:09.553873392+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:10 0 dockerd[2059]: time="2025-09-21T04:28:10.832611923+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:12 0 dockerd[2059]: time="2025-09-21T04:28:12.961186590+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:16 0 dockerd[2059]: time="2025-09-21T04:28:16.648311676+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:23 0 dockerd[2059]: time="2025-09-21T04:28:23.572466347+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:28:36 0 dockerd[2059]: time="2025-09-21T04:28:36.883365505+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+Sep 21 04:29:03 0 dockerd[2059]: time="2025-09-21T04:29:03.004774146+05:00" level=info msg="ignoring event" container=acd7f31147788926949f8bcb82bd0d487b9a2e145f04d85d67cfa143853bdd06 module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"

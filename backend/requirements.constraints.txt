@@ -1,0 +1,4 @@
+# Empty constraints file per user request.
+# No protobuf pin; expect pip to potentially emit conflict warnings when google-generativeai and
+# packages that prefer protobuf>=5/6 are installed together.
+
